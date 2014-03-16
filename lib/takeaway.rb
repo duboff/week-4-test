@@ -1,3 +1,6 @@
+require 'bundler/setup'
+require 'twilio-ruby'
+
 class Takeaway
   
   attr_reader :price_list
