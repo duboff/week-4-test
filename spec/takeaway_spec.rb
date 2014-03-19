@@ -1,11 +1,9 @@
 require 'takeaway'
-require 'twilio-ruby'
 
 describe Takeaway do
   
   let (:dish_list) {{'apple' => 2, 'steak' => 20, 'salad' => 10, 'burger' => 15}}
   let (:takeaway) {Takeaway.new(dish_list)}
-  # let (:ta_double) {double :takeaway}
   
   it 'has a list of dishes on initialization' do
     expect(takeaway.price_list.class).to eq Hash

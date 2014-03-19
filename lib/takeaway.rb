@@ -1,4 +1,3 @@
-require 'bundler/setup'
 require 'twilio-ruby'
 
 class Takeaway
@@ -11,8 +10,8 @@ class Takeaway
 
   def place_order(quantities, total)
     raise 'Quantities should be passed on as a hash' if quantities.class != Hash
-    raise 'The total appears to be wrong' if total != sum
     sum = quantities.keys.inject(0) {|result, key| result + price_list[key] * quantities[key] }
+    raise 'The total appears to be wrong' if total != sum
     time = time_in_1_hour
     text = "Thank you for your order. We will deliver it before #{time.hour}:#{time.min}."
     send_text(text)
